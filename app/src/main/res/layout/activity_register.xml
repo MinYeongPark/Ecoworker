@@ -95,7 +95,7 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="283dp"
+        android:layout_width="match_parent"
         android:layout_height="27dp"
         android:background="#FFFFFF"
         android:gravity="center"
@@ -110,7 +110,7 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="264dp"
+        android:layout_width="match_parent"
         android:layout_height="29dp"
         android:background="#FFFFFF"
         android:gravity="center"
