@@ -47,7 +47,7 @@
         app:layout_constraintVertical_bias="0.492" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_check"
         android:layout_width="85dp"
         android:layout_height="31dp"
         android:background="#9FC86F"
