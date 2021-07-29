@@ -1,14 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#90B5F4"
-    android:orientation="vertical">
+    android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/textView"
+    <CalendarView
+        android:id="@+id/Calendar2"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"/>
+
+    <SlidingDrawer
+        android:id="@+id/slidingDrawer1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="통계 페이지"
-        android:textSize="50sp" />
+        android:content="@+id/content"
+        android:handle="@+id/handle" >
+
+        <Button
+            android:id="@+id/handle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:text="-----"
+            android:textColor="@color/black"/>
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:background="#e1efd8"
+            android:gravity="center"
+            android:orientation="vertical">
+
+        </LinearLayout>
+    </SlidingDrawer>
 </LinearLayout>

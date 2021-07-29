@@ -1,14 +1,64 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tabChange"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAF6D1"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="변환 페이지"
-        android:textSize="50sp" />
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="가공식품 소비기한 변환기"
+            android:background="#e1efd8"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Spinner
+            android:id="@+id/spinnerFood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"/>
+        <CalendarView
+            android:id="@+id/Calendar1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/conResult"
+            android:layout_width="350dp"
+            android:layout_height="70dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:background="@drawable/green_line"
+            android:text="2021.07.05 유효기간인 우유는\n45일 후 2021.08.19까지 드실 수 있습니다."/>
+        <Button
+            android:id="@+id/Alarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="알림 설정"
+            android:background="#e7e6e6"
+            android:layout_gravity="right"
+            android:layout_marginRight="37dp"/>
+    </LinearLayout>
 </LinearLayout>
