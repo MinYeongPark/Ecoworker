@@ -1,8 +1,13 @@
 package org.techtown.ecoworker;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.Image;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -17,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     fragment_change fragment2;
     fragment_alarm fragment3;
     fragment_stat fragment4;
+    ImageButton profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +64,15 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+        profile = (ImageButton) findViewById(R.id.profile);
+        profile.setOnClickListener(new View.OnClickListener(){
+         public void onClick(View v){
+             Toast.makeText(getApplicationContext(), "눌린 거 확인용",
+                     Toast.LENGTH_SHORT).show();
 
             }
         });

@@ -1,13 +1,14 @@
 package org.techtown.ecoworker.alarm;
 
-import android.app.TabActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TabHost;
-import android.widget.TabHost.TabSpec;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import org.techtown.ecoworker.R;
@@ -17,32 +18,13 @@ public class fragment_alarm extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootview = (ViewGroup) inflater.inflate(R.layout.fragment_alarm, container, false);
 
-        @SuppressWarnings("deprecation")
-        class MainActivity extends TabActivity {
+        final String[] sort = {"최근 등록순", "마감 임박순", "가나다순"};
 
-            @Override
-            public void onCreate(Bundle savedInstanceState) {
-                super.onCreate(savedInstanceState);
-                setContentView(R.layout.activity_main);
+        Spinner spinnerSort= (Spinner) rootview.findViewById(R.id.spinnerSort);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, sort);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerSort.setAdapter(adapter);
 
-                TabHost tabHost = getTabHost();
-
-                TabSpec tabSpecSong = tabHost.newTabSpec("SONG").setIndicator("음악별");
-                tabSpecSong.setContent(R.id.tabSong);
-                tabHost.addTab(tabSpecSong);
-
-                TabSpec tabSpecArtist = tabHost.newTabSpec("ARTIST")
-                        .setIndicator("가수별");
-                tabSpecArtist.setContent(R.id.tabArtist);
-                tabHost.addTab(tabSpecArtist);
-
-                TabSpec tabSpecAlbum = tabHost.newTabSpec("ALBUM").setIndicator("앨범별");
-                tabSpecAlbum.setContent(R.id.tabAlbum);
-                tabHost.addTab(tabSpecAlbum);
-
-                tabHost.setCurrentTab(0);
-            }
-        }
         return rootview;
     }
 }
