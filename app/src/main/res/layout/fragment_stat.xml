@@ -10,26 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#e1efd8">
-        <Button
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#00ff0000"
-            android:text="----"
-            android:textColor="@color/black"/>
-    </RelativeLayout>
-    <CalendarView
-        android:id="@+id/Calendar2"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"/>
-
     <SlidingDrawer
-        android:id="@+id/slidingDrawer1"
+        android:id="@+id/slidingDrawer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:content="@+id/content"
@@ -50,7 +32,6 @@
             android:background="#e1efd8"
             android:gravity="center"
             android:orientation="vertical">
-
         </LinearLayout>
     </SlidingDrawer>
-</LinearLayout>
+    </LinearLayout>
