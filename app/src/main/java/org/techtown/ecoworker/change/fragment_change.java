@@ -2,7 +2,6 @@ package org.techtown.ecoworker.change;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,12 +10,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import org.techtown.ecoworker.MainActivity;
+
 import org.techtown.ecoworker.R;
+
 
 public class fragment_change extends Fragment {
 
@@ -30,6 +29,7 @@ public class fragment_change extends Fragment {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, food);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerFood.setAdapter(adapter);
+
 
         Button expAlarm = (Button) rootview.findViewById(R.id.Alarm);
         expAlarm.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +47,7 @@ public class fragment_change extends Fragment {
                 dlg.show();
             }
         });
+
 
         ImageButton InfoChange = (ImageButton) rootview.findViewById(R.id.InfoChange);
         InfoChange.setOnClickListener(new View.OnClickListener() {
