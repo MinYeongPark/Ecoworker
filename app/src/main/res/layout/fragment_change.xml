@@ -42,16 +42,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/conResult"
             android:layout_width="350dp"
             android:layout_height="70dp"
-            android:gravity="center"
             android:layout_gravity="center"
-            android:textSize="18dp"
-            android:textColor="@color/black"
             android:background="@drawable/green_line"
-            android:text="2021.07.05 유효기간인 우유는\n45일 후 2021.08.19까지 드실 수 있습니다."/>
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="18dp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
