@@ -69,8 +69,7 @@ public class fragment_alarm extends ListFragment {
                     customListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            String selectedItem = (String) view.findViewById(R.id.foodName).getTag().toString();
-                            Toast.makeText(getContext(), "Clicked : " + position + " " + selectedItem, Toast.LENGTH_SHORT).show();
+                            
                         }
                     });
 
