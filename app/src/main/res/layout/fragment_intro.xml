@@ -2,13 +2,586 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F4DBDB"
+    android:background="#FFFFFF"
     android:orientation="vertical">
 
+
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="소개 페이지"
-        android:textSize="50sp" />
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="식품별 소비기한"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#555252" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        android:text="출처: 식품의약품 안전처"
+        android:textColor="#575252" />
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#999999"
+        android:stretchColumns="*">
+
+
+        <!--최상단 구분선-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#B4D4A5"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="품목" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="1dp"
+                android:background="#B4D4A5"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="소비기한\n (유통기한에서)"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#B4D4A5"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="보관방법" />
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="요거트" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="10일" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="냉장보관" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="계란" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="25일" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="냉장보관" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="식빵" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="18일" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="냉장보관" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="액상커피" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="30일" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="냉장보관" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="우유" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="45일" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="냉장보관" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="슬라이드 치즈" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="70일" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="냉장보관" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="두부" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="90일" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="냉장보관" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="김치" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="6개월 이상" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="냉장보관" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="라면" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="8개월" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="실온보관" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="냉동만두" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="1년 이상" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="냉동보관" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="고추장" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="2년 이상" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="냉장보관" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="참기름" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="2년 6개월" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="실온보관" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="식용유" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="5년" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="실온보관" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="참치캔(살코기)" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="10년 이상" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="실온보관" />
+
+        </TableRow>
+
+
+
+
+
+
+    </TableLayout>
+
 </LinearLayout>

@@ -3,10 +3,15 @@ package org.techtown.ecoworker;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.app.FragmentTransaction;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
@@ -23,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     fragment_alarm fragment3;
     fragment_stat fragment4;
     ImageButton profile;
+    Dialog intro_dialog2;
+    Button btn3close;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         fragment2 = new fragment_change();
         fragment3 = new fragment_alarm();
         fragment4 = new fragment_stat();
+
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment1).commit();
         TabLayout tabs = findViewById(R.id.tabs);
@@ -76,5 +84,28 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        intro_dialog2 = new Dialog(MainActivity.this);
+        intro_dialog2.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        intro_dialog2.setContentView(R.layout.intro_dialog2);
+        showintro_dialog();
+
+
+    }
+
+    public void showintro_dialog(){
+        intro_dialog2.show();
+        ImageView imageViewclose = intro_dialog2.findViewById(R.id.imageViewclose);
+
+        imageViewclose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intro_dialog2.dismiss();
+                Toast.makeText(MainActivity.this, "안내사항 닫기", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
     }
 }
