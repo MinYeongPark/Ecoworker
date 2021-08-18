@@ -73,8 +73,6 @@ public class MainActivity extends AppCompatActivity {
         profile = (ImageButton) findViewById(R.id.profile);
         profile.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Toast.makeText(getApplicationContext(), "눌린 거 확인용",
-                Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, MypageActivity.class);
                 startActivity(intent);
             }
