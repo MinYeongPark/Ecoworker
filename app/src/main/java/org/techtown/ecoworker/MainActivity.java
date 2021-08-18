@@ -3,8 +3,12 @@ package org.techtown.ecoworker;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.app.Dialog;
 import android.app.FragmentTransaction;
+
+import android.content.Intent;
+
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +23,7 @@ import com.google.android.material.tabs.TabLayout;
 import org.techtown.ecoworker.alarm.fragment_alarm;
 import org.techtown.ecoworker.change.fragment_change;
 import org.techtown.ecoworker.intro.fragment_intro;
+import org.techtown.ecoworker.mypage.MypageActivity;
 import org.techtown.ecoworker.stat.fragment_stat;
 
 public class MainActivity extends AppCompatActivity {
@@ -78,10 +83,9 @@ public class MainActivity extends AppCompatActivity {
 
         profile = (ImageButton) findViewById(R.id.profile);
         profile.setOnClickListener(new View.OnClickListener(){
-         public void onClick(View v){
-             Toast.makeText(getApplicationContext(), "눌린 거 확인용",
-                     Toast.LENGTH_SHORT).show();
-
+            public void onClick(View v){
+                Intent intent = new Intent(MainActivity.this, MypageActivity.class);
+                startActivity(intent);
             }
         });
 
