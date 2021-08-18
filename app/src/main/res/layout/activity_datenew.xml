@@ -37,14 +37,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="품목 : "/>
+
         <Spinner
             android:id="@+id/spinnerFood"
             android:layout_width="150dp"
             android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="20dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -57,11 +69,13 @@
             android:maxLength="2"
             android:inputType="number"
             android:digits="0123456789"/>
+
         <Button
             android:id="@+id/numCho"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="선택"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -80,7 +94,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
 
             <TextView
                 android:layout_width="wrap_content"

@@ -24,12 +24,13 @@
 
         <activity android:name=".MainActivity" />
 
-        <activity android:name=".StatActivity" android:label = "Stat 액티비티">
+        <activity android:name=".stat.StatActivity" android:label = "Stat 액티비티">
         </activity>
-        <activity android:name=".DateNewActivity" android:label = "DateNew 액티비티">
+        <activity android:name=".stat.DateNewActivity" android:label = "DateNew 액티비티">
         </activity>
-        <activity android:name=".DateModActivity" android:label = "DateMod 액티비티">
+        <activity android:name=".stat.DateModActivity" android:label = "DateMod 액티비티">
         </activity>
+
     </application>
 
 </manifest>
