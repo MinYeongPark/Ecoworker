@@ -48,7 +48,8 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:gravity="center"
-            android:text="품목명을 먼저 선택한 후 유통기한을 선택하세요" />
+            android:text="품목명을 먼저 선택한 후 유통기한을 선택하세요"
+            android:textColor="#ff0000"/>
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

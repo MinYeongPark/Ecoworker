@@ -137,7 +137,7 @@ public class StatActivity extends AppCompatActivity {
                                         JSONArray jsonArray = new JSONArray(json);
                                         for (int i = 0; i < jsonArray.length(); i++) {
                                             JSONObject jsonObject = jsonArray.getJSONObject(i);
-
+                                            String foodName = jsonObject.getString("foodName");
                                             String carbonAmount = jsonObject.getString("carbonAmount");
                                             float carbonAmount_i = Float.parseFloat(carbonAmount);
                                             value = Math.round(carbonAmount_i / sum_carbonAmount_i * 100); //해당 품목 탄소발자국 비율

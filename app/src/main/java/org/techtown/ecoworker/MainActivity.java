@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 intro_dialog2.dismiss();
-                Toast.makeText(MainActivity.this, "안내사항 닫기", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "안내사항 닫기", Toast.LENGTH_SHORT).show();
             }
         });
 

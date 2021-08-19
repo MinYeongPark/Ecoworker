@@ -4,7 +4,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="알람 목록"
+            android:background="#e1efd8"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:textStyle="bold"/>
+    </LinearLayout>
 <!--    <LinearLayout-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->
