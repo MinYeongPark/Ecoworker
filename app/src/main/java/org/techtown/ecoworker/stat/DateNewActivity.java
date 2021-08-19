@@ -76,8 +76,8 @@ public class DateNewActivity extends AppCompatActivity {
         });
 
         //품목 선택 및 탄소발자국 계산
-        final String[] food = {"품목명", "요거트", "계란", "식빵", "액상커피", "우유", "슬라이스 치즈", "두부", "김치", "라면", "냉동만두", "고추장", "참기름", "식용유", "참치캔"};
-        final int[] carfoot = {0, 240, 449, 260,224, 1020, 100, 16,76,1,1,1,1,1,533};
+        final String[] food = {"품목명", "요거트", "계란", "식빵", "액상커피", "우유", "슬라이스 치즈", "두부", "김치", "참치캔"};
+        final int[] carfoot = {0, 240, 449, 260, 224, 1020, 100, 16, 76, 533};
 
         Spinner spinnerFood= (Spinner) findViewById(R.id.spinnerFood);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(DateNewActivity.this,android.R.layout.simple_spinner_item, food);
