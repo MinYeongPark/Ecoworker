@@ -113,18 +113,7 @@ public class fragment_stat extends Fragment {
                 startActivity(intent);
             }
         });
-
-//        dateMod = (Button) rootview.findViewById(R.id.dateMod);
-//        dateMod.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getActivity(), DateModActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-
-
-
-        return rootview;
+                return rootview;
         }
     }
 
