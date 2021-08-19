@@ -9,6 +9,9 @@ import android.app.FragmentTransaction;
 
 import android.content.Intent;
 
+
+import android.content.Intent;
+
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
@@ -23,7 +26,9 @@ import com.google.android.material.tabs.TabLayout;
 import org.techtown.ecoworker.alarm.fragment_alarm;
 import org.techtown.ecoworker.change.fragment_change;
 import org.techtown.ecoworker.intro.fragment_intro;
+
 import org.techtown.ecoworker.mypage.MypageActivity;
+import org.techtown.ecoworker.login.LoginActivity;
 import org.techtown.ecoworker.stat.fragment_stat;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     fragment_stat fragment4;
     ImageButton profile;
     Dialog intro_dialog2;
-    Button btn3close;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
