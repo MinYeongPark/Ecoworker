@@ -75,6 +75,29 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="선택 버튼을 누른 후 가운데 차트 영역을 클릭하세요"
+            android:textColor="#FF0000"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
 
     <com.github.mikephil.charting.charts.PieChart
         android:layout_width="300dp"
@@ -82,6 +105,13 @@
         android:id="@+id/piechart">
 
     </com.github.mikephil.charting.charts.PieChart>
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/round_theme_3">
+    </ListView>
 
     <Button
         android:id="@+id/chartClose"

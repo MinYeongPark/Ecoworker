@@ -7,10 +7,13 @@ import android.text.InputFilter;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -40,14 +43,25 @@ public class StatActivity extends AppCompatActivity {
     Button chartClose, select;
 
     String userID,foodName;
-    int year, month, carbonAmount, sum_carbonAmount;
+    int year, month;
     EditText et_year, et_month;
     float value;
+    float sum_carbonAmount_i;
+
+    ArrayList<MonthStat> monthStat;
+    private static CustomAdapter3 customAdapter3;
+    ListView customListView;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stat);
 
+        //탄소발자국 비율 리스트
+        monthStat = new ArrayList<>();
+        customAdapter3 = new CustomAdapter3(StatActivity.this, R.id.foodName, monthStat);
+        customListView = (ListView) findViewById(android.R.id.list);
+
+        //차트
         pieChart = (PieChart)findViewById(R.id.piechart);
 
         pieChart.setUsePercentValues(true);
@@ -63,10 +77,11 @@ public class StatActivity extends AppCompatActivity {
         ArrayList<PieEntry> yValues = new ArrayList<PieEntry>();
 
 
+        //사용자 아이디, 사용자가 입력한 연도, 사용자가 입력한 월 받아오기
         userID = SharedPreferenceUtil.getSharedPreference(StatActivity.this, "userID");
 
         try {
-            et_year = (EditText) findViewById(R.id.year);
+            et_year = findViewById(R.id.year);
             et_year.setFilters(new InputFilter[]{new InputFilterMinMax("1", "2100")});
             et_year.setOnKeyListener(new View.OnKeyListener() {
                 @Override
@@ -76,9 +91,8 @@ public class StatActivity extends AppCompatActivity {
                     return false;
                 }
             });
-            year = Integer.parseInt(et_year.getText().toString());
 
-            et_month = (EditText) findViewById(R.id.month);
+            et_month = findViewById(R.id.month);
             et_month.setFilters(new InputFilter[]{new InputFilterMinMax("1", "12")});
             et_month.setOnKeyListener(new View.OnKeyListener() {
                 @Override
@@ -88,8 +102,6 @@ public class StatActivity extends AppCompatActivity {
                     return false;
                 }
             });
-            month = Integer.parseInt(et_month.getText().toString());
-
 
         } catch (NumberFormatException e) {
             e.printStackTrace();
@@ -97,89 +109,86 @@ public class StatActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        //'선택'버튼 클릭 시 차트와 리스트를 띄움
         select = (Button) findViewById(R.id.select);
         select.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Response.Listener<String> responseListener0 = new Response.Listener<String>() { //전체 탄소발자국 구하기
+
+                year = Integer.parseInt(et_year.getText().toString());
+                month = Integer.parseInt(et_month.getText().toString());
+
+                //전체 탄소발자국 값 연동
+                Response.Listener<String> responseListener0 = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            Log.d("asdf", "잘나옴000");
                             JSONObject jsonObject = new JSONObject(response);
                             boolean success = jsonObject.getBoolean("success");
-                            Log.d("asdf", "잘나옴001");
-                            sum_carbonAmount = jsonObject.getInt("carbon_Amount");
+
+                            String sum_carbonAmount = jsonObject.getString("carbonAmount");
+                            sum_carbonAmount_i = Float.parseFloat(sum_carbonAmount); //전체 탄소발자국 양
+
+                            //품목별 탄소발자국 값 연동 및 비율 구하기
+                            Response.Listener<String> responseListener = new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String json) {
+                                    try {
+                                        JSONArray jsonArray = new JSONArray(json);
+                                        for (int i = 0; i < jsonArray.length(); i++) {
+                                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                                            String carbonAmount = jsonObject.getString("carbonAmount");
+                                            float carbonAmount_i = Float.parseFloat(carbonAmount);
+                                            value = Math.round(carbonAmount_i / sum_carbonAmount_i * 100); //해당 품목 탄소발자국 비율
+
+                                            yValues.add(new PieEntry(value, foodName));                    //차트에 추가
+
+                                            monthStat.add(new MonthStat(foodName, carbonAmount_i, value)); //리스트에 추가
+                                        }
+
+                                        customListView.setAdapter(customAdapter3);
+                                        customListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                            @Override
+                                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                                            }
+                                        });
+
+                                        PieDataSet dataSet = new PieDataSet(yValues," ");
+                                        dataSet.setSliceSpace(3f);
+                                        dataSet.setSelectionShift(5f);
+                                        dataSet.setColors(ColorTemplate.JOYFUL_COLORS);
+
+                                        PieData data = new PieData((dataSet));
+                                        data.setValueTextSize(5f);
+                                        data.setValueTextColor(Color.YELLOW);
+
+                                        pieChart.setData(data);
+
+
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            };
+                            StatChartRequest statChartRequest = new StatChartRequest(userID, year, month, responseListener);
+                            RequestQueue queue = Volley.newRequestQueue(StatActivity.this);
+                            queue.add(statChartRequest);
 
                         } catch (JSONException e) {
-                            Log.d("asdf", "잘나옴002");
                             e.printStackTrace();
                         }
-
                     }
                 };
-
                 SumCarbonRequest sumCarbonRequest = new SumCarbonRequest(userID, year, month, responseListener0);
-                Log.d("asdf", "잘나옴003");
                 RequestQueue queue0 = Volley.newRequestQueue(StatActivity.this);
                 queue0.add(sumCarbonRequest);
-
-                Response.Listener<String> responseListener = new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String json) {
-                        try {
-                            JSONArray jsonArray = new JSONArray(json);
-                            Log.d("asdf", "잘나옴0");
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                Log.d("asdf", "잘나옴1");
-                                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                                foodName = jsonObject.getString("foodName");
-                                carbonAmount = jsonObject.getInt("carbon_Amount");
-                                Log.d("asdf", "잘나옴2");
-
-                                value = (float) carbonAmount/sum_carbonAmount; //비율 구함
-
-                                yValues.add(new PieEntry(value, foodName));
-                                Log.d("asdf", "잘나옴3");
-                            }
-
-                            PieDataSet dataSet = new PieDataSet(yValues,"Countries");
-                            Log.d("asdf", "잘나옴7");
-                            dataSet.setSliceSpace(3f);
-                            dataSet.setSelectionShift(5f);
-                            Log.d("asdf", "잘나옴8");
-                            dataSet.setColors(ColorTemplate.JOYFUL_COLORS);
-
-                            PieData data = new PieData((dataSet));
-                            Log.d("asdf", "잘나옴9");
-                            data.setValueTextSize(10f);
-                            data.setValueTextColor(Color.YELLOW);
-                            Log.d("asdf", "잘나옴10");
-
-                            pieChart.setData(data);
-
-                        } catch (JSONException e) {
-                            Log.d("asdf", "잘나옴4");
-                            e.printStackTrace();
-                        }
-                    }
-                };
-                Log.d("asdf", "잘나옴5");
-                StatChartRequest statChartRequest = new StatChartRequest(userID, year, month, responseListener);
-                RequestQueue queue = Volley.newRequestQueue(StatActivity.this);
-                Log.d("asdf", "잘나옴6");
-                queue.add(statChartRequest);
-
 
             }
         });
 
-
-
-
-
-
-
+        //창 닫기
         chartClose = (Button) findViewById(R.id.chartClose);
         chartClose.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -188,4 +197,29 @@ public class StatActivity extends AppCompatActivity {
             }
         });
     }
+}
+
+class MonthStat {
+    private String foodName;
+    private float carbonAmount;
+    private float carbonValue;
+
+    public MonthStat(String foodName, float carbonAmount, float carbonValue) {
+        this.foodName = foodName;
+        this.carbonAmount = carbonAmount;
+        this.carbonValue = carbonValue;
+    }
+
+    public String getFoodName() {
+        return foodName;
+    }
+
+    public float getCarbonAmount() {
+        return carbonAmount;
+    }
+
+    public float getCarbonValue() {
+        return carbonValue;
+    }
+
 }
