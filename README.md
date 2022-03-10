@@ -1,6 +1,10 @@
 # 🍀 ECOWORKER 
 <img src = "https://user-images.githubusercontent.com/55652102/157639787-477341e6-a156-4830-a73c-b7654f1847dd.png" width="100%" height="100%">
-2021 성신여자대학교 소프트웨어경진대회 저학년부 출품작 ECOWORKER
+2021 성신여자대학교 소프트웨어경진대회 저학년부 출품작 ECOWORKER팀
+<br>
+<br>
+
+**주제** : 유통기한-소비기한 변환 및 탄소발자국 내역 확인 앱 'ECOWORKER'
   
 <br>
 <br>
